@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +10,17 @@ namespace SimpleCommandLine
     {
         static void Main(string[] args)
         {
-            var systemsManager = new SystemsManager();
+            var systemsCollection = new SystemsCollection();
+            systemsCollection.Add(new MoveSystem());
+
+            var world = new World();
+            var player = new Entity();
+            player.AddComponent(new PositionComponent());
+            world.AddEntity(player);
 
             while (true)
             {
-                systemsManager.Update(0);
+                systemsCollection.Update(world, 0);
             }
         }
     }

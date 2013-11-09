@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace EntityComponentSystem
 {
-    public interface ISystemsManager
+    public interface ISystemsCollection
     {
-        void Update(double deltaTime);
+        void Update(World world, double deltaTime);
     }
 }
